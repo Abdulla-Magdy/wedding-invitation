@@ -5,19 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>دعوة زفاف ملكية | عبدالله و أسماء</title>
     <style>
-        /* Premium Font Import */
-        @import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Reem+Kufi:wght@400;700&display=swap');
+        /* PREMIUM TYPOGRAPHY IMPORT 
+           Amiri: For scriptural and poetic elements
+           Cairo: For modern, clean body text
+           Tajawal: For bold, high-impact titles and names
+        */
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@300;400;600&family=Tajawal:wght@400;500;700;800&display=swap');
 
         :root {
-            --midnight: #050a18;
-            --deep-navy: #0a1128;
-            --gold: #d4af37;
+            --midnight: #040812;
+            --deep-navy: #0a1428;
+            --gold-primary: #d4af37;
             --gold-light: #f9f1c0;
-            --gold-dark: #7d6608;
+            --gold-soft: #b89530;
             --ivory: #fcf9f2;
-            --glass: rgba(255, 255, 255, 0.03);
-            --glass-border: rgba(212, 175, 55, 0.2);
-            --transition-slow: 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+            --glass: rgba(255, 255, 255, 0.02);
+            --glass-border: rgba(212, 175, 55, 0.15);
+            
+            /* Font Definitions */
+            --font-main: 'Cairo', sans-serif;
+            --font-verse: 'Amiri', serif;
+            --font-royal: 'Tajawal', sans-serif;
         }
 
         * {
@@ -29,75 +37,56 @@
         body {
             background-color: var(--midnight);
             color: var(--ivory);
-            font-family: 'Amiri', serif;
+            font-family: var(--font-main);
             overflow-x: hidden;
             min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* --- Cinematic Background --- */
-        #royal-night-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
-            background: radial-gradient(circle at center, var(--deep-navy) 0%, var(--midnight) 100%);
-        }
-
-        #star-canvas {
+        /* --- Cinematic Layering --- */
+        #royal-canvas {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: -1;
-            pointer-events: none;
+            background: radial-gradient(circle at 50% 40%, var(--deep-navy) 0%, var(--midnight) 100%);
         }
 
-        /* --- Islamic Arch Decoration --- */
-        .arch-container {
+        /* Decorative Arch (Refined SVG Shape) */
+        .arch-glow {
             position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 95vw;
-            height: 90vh;
+            width: 85vw;
+            height: 85vh;
             border: 1px solid var(--glass-border);
-            border-radius: 50% 50% 0 0 / 25% 25% 0 0;
-            z-index: 0;
+            border-radius: 50% 50% 0 0 / 35% 35% 0 0;
             pointer-events: none;
-            opacity: 0.4;
+            z-index: 0;
+            box-shadow: inset 0 0 50px rgba(212, 175, 55, 0.05);
+            mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
         }
 
-        .arch-container::after {
-            content: '';
-            position: absolute;
-            top: -10px; left: -10px; right: -10px; bottom: -10px;
-            border: 1px solid var(--gold-dark);
-            border-radius: inherit;
-            opacity: 0.2;
-        }
-
-        /* --- Main Experience Wrapper --- */
-        .experience-wrapper {
+        /* --- Layout & Typography --- */
+        .container {
             position: relative;
             z-index: 10;
-            width: 100%;
-            max-width: 900px;
-            padding: 80px 20px;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 100px 24px;
             text-align: center;
         }
 
-        /* --- Animation Classes --- */
+        /* Reveal Animations */
         .reveal {
             opacity: 0;
-            transform: translateY(30px);
-            filter: blur(10px);
-            transition: opacity var(--transition-slow), transform var(--transition-slow), filter var(--transition-slow);
+            transform: translateY(40px);
+            filter: blur(12px);
+            transition: all 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+            will-change: transform, opacity, filter;
         }
 
         .reveal.active {
@@ -106,258 +95,260 @@
             filter: blur(0);
         }
 
-        /* --- Section 1: Hero --- */
+        /* Typography Hierarchy */
         .basmala {
-            font-family: 'Reem Kufi', sans-serif;
-            font-size: 1.8rem;
+            font-family: var(--font-main);
+            font-weight: 300;
+            font-size: 1.4rem;
             color: var(--gold-light);
-            margin-bottom: 30px;
-            letter-spacing: 2px;
+            margin-bottom: 40px;
+            letter-spacing: 4px; /* Space for the modern look */
         }
 
         .quran-verse {
-            font-size: 1.25rem;
-            line-height: 2;
+            font-family: var(--font-verse);
+            font-size: clamp(1.2rem, 4vw, 1.6rem);
+            line-height: 2.2;
             color: var(--ivory);
-            opacity: 0.85;
-            max-width: 700px;
-            margin: 0 auto 40px;
-            font-style: italic;
-        }
-
-        .wedding-title {
-            font-family: 'Reem Kufi', sans-serif;
-            font-size: 1.4rem;
-            color: var(--gold);
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            margin-bottom: 50px;
+            max-width: 750px;
+            margin: 0 auto 50px;
+            padding: 0 20px;
             position: relative;
-            display: inline-block;
         }
 
-        .wedding-title::before, .wedding-title::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            width: 50px;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--gold));
+        .wedding-label {
+            font-family: var(--font-royal);
+            font-weight: 500;
+            font-size: 1rem;
+            color: var(--gold-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.4rem;
+            margin-bottom: 20px;
+            display: block;
         }
-
-        .wedding-title::before { right: -60px; }
-        .wedding-title::after { left: -60px; transform: rotate(180deg); }
 
         .couple-names {
-            font-family: 'Reem Kufi', sans-serif;
-            font-size: clamp(2.5rem, 8vw, 4.5rem);
-            margin: 40px 0;
+            font-family: var(--font-royal);
+            font-weight: 800;
+            font-size: clamp(2.8rem, 10vw, 4.8rem);
             color: var(--gold-light);
-            text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+            margin: 30px 0;
+            line-height: 1.2;
             display: flex;
             flex-direction: column;
-            gap: 15px;
-            animation: pulseGlow 4s ease-in-out infinite alternate;
+            gap: 10px;
+            animation: royalPulse 5s ease-in-out infinite alternate;
         }
 
-        @keyframes pulseGlow {
-            from { text-shadow: 0 0 20px rgba(212, 175, 55, 0.2); }
-            to { text-shadow: 0 0 40px rgba(212, 175, 55, 0.6), 0 0 10px rgba(212, 175, 55, 0.4); }
+        @keyframes royalPulse {
+            0% { text-shadow: 0 0 10px rgba(212, 175, 55, 0.2); }
+            100% { text-shadow: 0 0 40px rgba(212, 175, 55, 0.5), 0 0 80px rgba(212, 175, 55, 0.2); }
         }
 
-        .couple-names span.separator {
-            font-size: 1.5rem;
+        .couple-names .and-text {
+            font-family: var(--font-verse);
+            font-weight: 400;
+            font-size: 1.8rem;
             color: var(--ivory);
-            opacity: 0.5;
+            opacity: 0.4;
+            margin: 10px 0;
         }
 
-        .invitation-sentence {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto 60px;
-            line-height: 1.8;
-            color: var(--ivory);
-        }
-
-        /* --- Section 2: Cards --- */
-        .details-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            margin-bottom: 60px;
-        }
-
-        .detail-card {
-            background: var(--glass);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid var(--glass-border);
-            padding: 40px 20px;
-            border-radius: 20px;
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .detail-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            border-color: var(--gold);
-            background: rgba(255, 255, 255, 0.05);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
-        }
-
-        .detail-card h3 {
-            font-family: 'Reem Kufi', sans-serif;
-            color: var(--gold);
-            font-size: 1rem;
-            margin-bottom: 15px;
-            letter-spacing: 2px;
-        }
-
-        .detail-card p {
+        .invite-message {
+            font-family: var(--font-main);
+            font-weight: 300;
             font-size: 1.15rem;
-            line-height: 1.6;
+            color: rgba(252, 249, 242, 0.85);
+            max-width: 550px;
+            margin: 0 auto 70px;
+            line-height: 1.9;
         }
 
-        /* --- Section 3: Button --- */
-        .btn-wrapper {
+        /* Detail Cards (Glassmorphism) */
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
             margin-bottom: 80px;
         }
 
-        .gold-btn {
+        .card {
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            padding: 45px 25px;
+            border-radius: 24px;
+            transition: all 0.5s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-12px);
+            border-color: var(--gold-primary);
+            background: rgba(212, 175, 55, 0.04);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .card h3 {
+            font-family: var(--font-royal);
+            font-weight: 600;
+            color: var(--gold-primary);
+            font-size: 0.9rem;
+            letter-spacing: 0.2rem;
+            margin-bottom: 20px;
+        }
+
+        .card p {
+            font-family: var(--font-main);
+            font-weight: 400;
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        /* Premium Location Button */
+        .cta-container {
+            margin-bottom: 100px;
+        }
+
+        .map-btn {
             position: relative;
             display: inline-block;
-            padding: 20px 50px;
-            font-family: 'Reem Kufi', sans-serif;
-            font-size: 1.1rem;
+            padding: 22px 55px;
+            font-family: var(--font-royal);
+            font-weight: 700;
+            font-size: 1rem;
             color: var(--gold-light);
             text-decoration: none;
-            border: 1px solid var(--gold);
-            border-radius: 50px;
+            border: 1px solid var(--gold-primary);
+            border-radius: 60px;
             overflow: hidden;
-            transition: all 0.4s ease;
-            z-index: 1;
+            transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
             background: transparent;
+            z-index: 1;
         }
 
-        .gold-btn:hover {
-            transform: scale(1.05);
+        .map-btn:hover {
             color: var(--midnight);
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+            transform: scale(1.05);
+            box-shadow: 0 0 40px rgba(212, 175, 55, 0.4);
         }
 
-        .gold-btn::before {
+        .map-btn::before {
             content: '';
             position: absolute;
             top: 0; left: -100%;
             width: 100%; height: 100%;
-            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
-            transition: all 0.6s ease;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.8s ease;
+            z-index: 2;
         }
 
-        .gold-btn:hover::before {
-            left: 100%;
-        }
+        .map-btn:hover::before { left: 100%; }
 
-        .gold-btn::after {
+        .map-btn::after {
             content: '';
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: var(--gold);
+            inset: 0;
+            background: var(--gold-primary);
             z-index: -1;
             transform: scaleX(0);
             transform-origin: right;
             transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
         }
 
-        .gold-btn:hover::after {
+        .map-btn:hover::after {
             transform: scaleX(1);
             transform-origin: left;
         }
 
-        /* --- Section 4: Footer --- */
-        .footer-line {
-            font-size: 1.2rem;
+        /* Footer */
+        .footer-text {
+            font-family: var(--font-verse);
+            font-size: 1.4rem;
             color: var(--gold-light);
-            font-style: italic;
-            opacity: 0.8;
-            letter-spacing: 1px;
+            opacity: 0.7;
+            border-top: 1px solid var(--glass-border);
+            padding-top: 40px;
+            display: inline-block;
         }
 
-        /* --- Responsive Tweaks --- */
+        /* Mobile Adjustments */
         @media (max-width: 600px) {
-            .experience-wrapper { padding: 40px 15px; }
-            .basmala { font-size: 1.4rem; }
-            .quran-verse { font-size: 1.1rem; }
-            .details-container { grid-template-columns: 1fr; }
+            .container { padding: 60px 20px; }
+            .couple-names { font-size: 3rem; }
+            .basmala { font-size: 1.1rem; }
+            .card { padding: 35px 20px; }
         }
     </style>
 </head>
 <body>
 
-    <div id="royal-night-bg"></div>
-    <canvas id="star-canvas"></canvas>
-    <div class="arch-container"></div>
+    <div id="royal-night-bg">
+        <canvas id="royal-canvas"></canvas>
+    </div>
+    
+    <div class="arch-glow"></div>
 
-    <main class="experience-wrapper">
+    <main class="container">
         
-        <div class="reveal basmala">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+        <div class="reveal basmala">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</div>
         
         <div class="reveal quran-verse">
-            ﴿ وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ﴾
+            ﴿ وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ﴾
         </div>
 
-        <div class="reveal wedding-title">دعوة لحضور حفل زفاف</div>
+        <span class="reveal wedding-label">دعوة لحضور حفل زفاف</span>
 
-        <div class="reveal couple-names">
+        <h1 class="reveal couple-names">
             <div>عبدالله مجدي</div>
-            <span class="separator">على</span>
+            <span class="and-text">على</span>
             <div>أسماء علام</div>
-        </div>
+        </h1>
 
-        <div class="reveal invitation-sentence">
-            بكل الحب والامتنان، يسعدنا دعوتكم لمشاركتنا فرحتنا في هذه المناسبة السعيدة
-        </div>
+        <p class="reveal invite-message">
+            بكل الحب والامتنان، يسعدنا دعوتكم لمشاركتنا فرحتنا في هذه المناسبة السعيدة التي تكتمل بجميل حضوركم
+        </p>
 
-        <div class="details-container">
-            <div class="reveal detail-card">
+        <div class="details-grid">
+            <div class="reveal card">
                 <h3>التاريخ</h3>
                 <p>السبت<br>04 / 04 / 2026</p>
             </div>
-            <div class="reveal detail-card">
+            <div class="reveal card">
                 <h3>الوقت</h3>
                 <p>الساعة 7:00 مساءً</p>
             </div>
-            <div class="reveal detail-card">
+            <div class="reveal card">
                 <h3>المكان</h3>
                 <p>نادي المعادي لضباط القوات المسلحة<br>قاعة سوليتير وايت</p>
             </div>
         </div>
 
-        <div class="reveal btn-wrapper">
-            <a href="https://maps.app.goo.gl/fhEv6psSKmaaGbdCA" target="_blank" class="gold-btn">
+        <div class="reveal cta-container">
+            <a href="https://maps.app.goo.gl/fhEv6psSKmaaGbdCA" target="_blank" class="map-btn">
                 اضغط هنا لعرض موقع القاعة
             </a>
         </div>
 
-        <footer class="reveal footer-line">
-            تشريفكم يسعدنا ويزيد ليلتنا بهجة
+        <footer class="reveal">
+            <p class="footer-text">تشريفكم يسعدنا ويزيد ليلتنا بهجة</p>
         </footer>
 
     </main>
 
     <script>
         /**
-         * Starry Background & Golden Particles Engine
+         * CINEMATIC STARFIELD & DUST ENGINE
          */
-        const canvas = document.getElementById('star-canvas');
+        const canvas = document.getElementById('royal-canvas');
         const ctx = canvas.getContext('2d');
-        let particles = [];
         let stars = [];
+        let particles = [];
 
-        function initCanvas() {
+        function init() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
             
-            // Generate Twinkling Stars
             stars = [];
             for(let i = 0; i < 200; i++) {
                 stars.push({
@@ -365,28 +356,27 @@
                     y: Math.random() * canvas.height,
                     size: Math.random() * 1.5,
                     opacity: Math.random(),
-                    speed: 0.005 + Math.random() * 0.015
+                    speed: 0.005 + Math.random() * 0.01
                 });
             }
 
-            // Generate Floating Golden Dust
             particles = [];
-            for(let i = 0; i < 50; i++) {
+            for(let i = 0; i < 60; i++) {
                 particles.push({
                     x: Math.random() * canvas.width,
                     y: Math.random() * canvas.height,
-                    radius: Math.random() * 2 + 1,
-                    vx: (Math.random() - 0.5) * 0.3,
-                    vy: (Math.random() - 0.5) * 0.3,
-                    alpha: Math.random() * 0.5 + 0.2
+                    radius: Math.random() * 1.5 + 0.5,
+                    vx: (Math.random() - 0.5) * 0.2,
+                    vy: -Math.random() * 0.4,
+                    alpha: Math.random() * 0.4 + 0.1
                 });
             }
         }
 
-        function draw() {
+        function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-            // Draw Stars
+            // Twinkling Stars
             stars.forEach(s => {
                 s.opacity += s.speed;
                 if(s.opacity > 1 || s.opacity < 0) s.speed *= -1;
@@ -396,14 +386,14 @@
                 ctx.fill();
             });
 
-            // Draw Gold Particles
+            // Golden Floating Dust
             particles.forEach(p => {
-                p.x += p.vx;
                 p.y += p.vy;
-                if(p.x < 0 || p.x > canvas.width) p.vx *= -1;
-                if(p.y < 0 || p.y > canvas.height) p.vy *= -1;
+                p.x += p.vx;
+                if (p.y < -10) p.y = canvas.height + 10;
+                if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
 
-                ctx.shadowBlur = 10;
+                ctx.shadowBlur = 8;
                 ctx.shadowColor = '#d4af37';
                 ctx.fillStyle = `rgba(212, 175, 55, ${p.alpha})`;
                 ctx.beginPath();
@@ -412,52 +402,36 @@
                 ctx.shadowBlur = 0;
             });
 
-            requestAnimationFrame(draw);
+            requestAnimationFrame(animate);
         }
 
         /**
-         * Staggered Reveal Animation Engine
+         * STAGGERED REVEAL INTERSECTION OBSERVER
          */
-        function handleScroll() {
-            const reveals = document.querySelectorAll('.reveal');
-            const windowHeight = window.innerHeight;
-
-            reveals.forEach((el, index) => {
-                const elementTop = el.getBoundingClientRect().top;
-                if (elementTop < windowHeight - 50) {
-                    // Added a deliberate staggered delay calculation
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    // Calculate delay based on element index for a flowing entrance
                     setTimeout(() => {
-                        el.classList.add('active');
-                    }, index * 100); 
+                        entry.target.classList.add('active');
+                    }, 250 * index); 
                 }
             });
-        }
+        }, observerOptions);
 
-        // Initialize Everything
-        window.addEventListener('resize', initCanvas);
-        window.addEventListener('scroll', handleScroll);
-        
-        // Initial setup
-        initCanvas();
-        draw();
-        
-        // Force initial reveal after a short cinematic delay
-        setTimeout(() => {
-            handleScroll();
-        }, 500);
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // Ripple Effect for Button
-        const btn = document.querySelector('.gold-btn');
-        btn.addEventListener('click', function(e) {
-            let x = e.clientX - e.target.offsetLeft;
-            let y = e.clientY - e.target.offsetTop;
-            let ripple = document.createElement('span');
-            ripple.style.left = x + 'px';
-            ripple.style.top = y + 'px';
-            // Logic for ripple would usually need specific CSS, 
-            // but we've used premium hover effects to maintain clean code as requested.
+        window.addEventListener('resize', init);
+        init();
+        animate();
+
+        // Subtle parallax on mouse move
+        window.addEventListener('mousemove', (e) => {
+            const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
+            const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
+            document.querySelector('.arch-glow').style.transform = `translate(calc(-50% + ${moveX}px), calc(-50% + ${moveY}px))`;
         });
-
     </script>
 </body>
 </html>
