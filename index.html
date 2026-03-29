@@ -312,6 +312,30 @@
       font-size:1.05rem;
     }
 
+
+    .update-banner{
+      margin:22px auto 0;
+      max-width:760px;
+      background:linear-gradient(135deg, rgba(212,176,106,.16), rgba(255,255,255,.06));
+      border:1px solid rgba(241,215,160,.28);
+      border-radius:22px;
+      padding:16px 18px;
+      text-align:center;
+      box-shadow:0 10px 30px rgba(0,0,0,.18), 0 0 18px rgba(212,176,106,.08);
+    }
+    .update-banner strong{
+      color:var(--gold-2);
+      display:block;
+      margin-bottom:6px;
+      font-size:1rem;
+    }
+    .update-banner p{
+      margin:0;
+      color:var(--text);
+      line-height:1.9;
+      font-size:.98rem;
+    }
+
     .countdown-section{margin-top:26px;text-align:center}
     .countdown-title{color:var(--gold-2);margin-bottom:14px;font-weight:700}
     .countdown{
@@ -593,11 +617,11 @@
         <div class="section reveal">
           <div class="names-wrap">
             <h1 class="name">
-              <span class="hidden-ar">عبداللّٰه مجدي</span>
+              <span class="hidden-ar">عَبْدُاللّٰه مجدي</span>
               <span class="hidden-en">Abdullah Magdy</span>
             </h1>
             <div class="between">
-              <span class="hidden-ar"></span>
+              <span class="hidden-ar">على</span>
               <span class="hidden-en">&amp;</span>
             </div>
             <h1 class="name">
@@ -614,9 +638,18 @@
           </p>
         </div>
 
+
+        <div class="section reveal update-banner">
+          <strong><span class="hidden-ar">تحديث هام</span><span class="hidden-en">Important Update</span></strong>
+          <p>
+            <span class="hidden-ar">بناءً على التعليمات الجديدة، تم تعديل موعد الحفل ليكون من الساعة 5:00 مساءً حتى 9:00 مساءً.</span>
+            <span class="hidden-en">Due to the new official instructions, the event timing has been updated to 5:00 PM – 9:00 PM.</span>
+          </p>
+        </div>
+
         <div class="section reveal countdown-section">
           <div class="countdown-title">
-            <span class="hidden-ar">العد التنازلي لموعد الحفل</span>
+            <span class="hidden-ar">العد التنازلي لموعد الفرح</span>
             <span class="hidden-en">Countdown to the Wedding</span>
           </div>
           <div class="countdown">
@@ -643,8 +676,8 @@
         <div class="icon">◔</div>
         <h3><span class="hidden-ar">الوقت</span><span class="hidden-en">Time</span></h3>
         <p>
-          <span class="hidden-ar">الساعة 7:00 مساءً</span>
-          <span class="hidden-en">7:00 PM</span>
+          <span class="hidden-ar">من 5:00 مساءً إلى 9:00 مساءً</span>
+          <span class="hidden-en">From 5:00 PM to 9:00 PM</span>
         </p>
       </article>
 
@@ -730,7 +763,7 @@
       observer.observe(el);
     });
 
-    const weddingDate = new Date('2026-04-04T19:00:00+02:00').getTime();
+    const weddingDate = new Date('2026-04-04T17:00:00+02:00').getTime();
     const values = {
       days: document.getElementById('days'),
       hours: document.getElementById('hours'),
